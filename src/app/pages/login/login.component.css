@@ -1,0 +1,16 @@
+.card {
+    border-radius: 20% 20% 0 0;
+}
+
+.card-header {
+    background: #005699;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
+.box-title {
+    margin-bottom: 0px;
+    color: white;
+    outline-color: white;
+    font-size: 25px;
+}
