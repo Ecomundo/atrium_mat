@@ -8,8 +8,8 @@ export class MailSearchPipe implements PipeTransform {
     const searchText = new RegExp(args, 'ig');
     if (value) {
       return value.filter(mail => {
-        if (mail.detalle || mail.titulo) {
-          if (mail.detalle.search(searchText) !== -1 || mail.titulo.search(searchText) !== -1) {
+        if (mail.sender || mail.subject) {
+          if (mail.sender.search(searchText) !== -1 || mail.subject.search(searchText) !== -1) {
             return true;
           }
         }

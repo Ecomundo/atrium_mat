@@ -1,8 +1,9 @@
 .card {
-    border-radius: 20% 20% 0 0;
+    border-radius: 15px;
 }
 
 .card-header {
+    padding: 0.2rem 0.7rem;
     background: #005699;
     border-radius: 15px 15px 0 0;
     text-align: center;
@@ -13,4 +14,38 @@
     color: white;
     outline-color: white;
     font-size: 25px;
+}
+
+.btn {
+    color: white !important;
+    border-radius: 0 0 15px 15px;
+}
+
+.btn-custom {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+    background-color: #449d48;
+    border-color: #3d8b40;
+}
+
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+    background-color: #4caf50;
+    border-color: #4caf50;
 }

@@ -18,7 +18,6 @@ export class LogServices implements CanActivate {
 
     canActivate() {
         this.getToken();
-
         if ( this.log() ) {
            console.log('Login');
            return true;
@@ -48,6 +47,7 @@ export class LogServices implements CanActivate {
 
         return this._http.post(this.url + 'Docentes', params, { headers })
         .map( res => {
+            console.log(res[0].token);
             this.saveStorageD(res[0].token, res[1]);
             return true;
         });
@@ -69,11 +69,12 @@ export class LogServices implements CanActivate {
         localStorage.setItem('token', token);
         localStorage.setItem('cod_per', datos.cod_per);
         localStorage.setItem('let_per', datos.let_per);
-        localStorage.setItem('cod_profesor', datos.cod_profesor);
+        localStorage.setItem('cod_user', datos.cod_profesor);
         localStorage.setItem('nombre', datos.nombre);
         localStorage.setItem('e_mail', datos.e_mail);
         localStorage.setItem('username', datos.username);
         localStorage.setItem('bandera', datos.bandera);
+        localStorage.setItem('cod_mens_clas_para', datos.cod_mens_clas_para);
         localStorage.setItem('cod_emp', '1');
         localStorage.setItem('type', 'D');
         this.getToken();
@@ -84,13 +85,14 @@ export class LogServices implements CanActivate {
         localStorage.setItem('cod_alum', datos.cod_alum);
         localStorage.setItem('cod_per', datos.cod_per);
         localStorage.setItem('let_per', datos.let_per);
-        localStorage.setItem('cod_repre', datos.cod_repre);
+        localStorage.setItem('cod_user', datos.cod_repre);
         localStorage.setItem('nomrepre', datos.nomrepre);
         localStorage.setItem('email', datos.email);
         localStorage.setItem('parentesco_est', datos.parentesco_est);
         localStorage.setItem('telefono', datos.telefono);
         localStorage.setItem('celular', datos.celular);
         localStorage.setItem('hijos', datos.hijos);
+        localStorage.setItem('cod_mens_clas_para', datos.cod_mens_clas_para);
         localStorage.setItem('tipo_representante', datos.tipo_representante);
         localStorage.setItem('type', 'R');
         this.getToken();

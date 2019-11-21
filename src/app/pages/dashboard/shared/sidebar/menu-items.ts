@@ -3,105 +3,32 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
   {
     path: '',
-    title: '--- Personal',
-    icon: '',
-    class: 'nav-small-cap',
-    label: '',
-    labelClass: '',
-    extralink: true,
-    submenu: []
-  },
-  {
-    path: '/observaciones',
-    title: 'Observaciones',
-    icon: 'icon-eye',
-    class: 'has-arrow',
-    label: '4',
-    labelClass: 'label label-rounded label-themecolor pull-right',
-    extralink: false,
-    submenu: [
-      {
-        path: '/dashboard/dashboard1',
-        title: 'Minimal',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/dashboard/dashboard2',
-        title: 'Demographical',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/dashboard/dashboard3',
-        title: 'Modern',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/dashboard/dashboard4',
-        title: 'Analytical',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      }
-    ]
-  },
-  {
-    path: '',
-    title: 'Apps',
-    icon: 'ti-layout-grid2',
+    title: '  Menú',
+    icon: 'icon-layers',
     class: 'has-arrow',
     label: '',
     labelClass: '',
     extralink: false,
-    submenu: [
-      {
-        path: '/apps/email',
-        title: 'Mailbox',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/apps/fullcalendar',
-        title: 'Calendar',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/apps/taskboard',
-        title: 'Taskboard',
-        icon: '',
-        class: '',
-        label: '',
-        labelClass: '',
-        extralink: false,
-        submenu: []
-      }
-    ]
+    submenu: [{
+      path: '/observaciones',
+      title: 'Observaciones',
+      icon: 'icon-eye',
+      class: '',
+      label: '',
+      labelClass: 'label label-rounded label-themecolor pull-right',
+      extralink: false,
+      submenu: []
+    },
+    {
+      path: '/email',
+      title: 'Email',
+      icon: 'icon-drawar',
+      class: '',
+      label: '',
+      labelClass: '',
+      extralink: false,
+      submenu: [ ]
+    }]
   },
   {
     path: '',

@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
 
     this.typelog = [
       {title: 'Docente', value: 'd'},
-      {title: 'Representante', value: 'r'}
+      {title: 'Manager', value: 'r'},
+      {title: 'Alumno', value: 'a'}
     ];
     this.user = new Log('', '');
 
@@ -42,14 +43,15 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLoggedin() {
+  logIn() {
+    console.log('hola');
 
     if (this.log === 'd') {
-
       this._log.signupD(this.user).subscribe(
         ok => {
+          console.log(this.log)
           this.user = new Log('', '');
-          this._router.navigate(['/dashboard/dashboard1']);
+          this._router.navigate(['/observaciones']);
         },
         error => {
           const mensaje = error.json();

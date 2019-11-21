@@ -1,0 +1,33 @@
+<div class="mailbox-header-bar p-3 bg-white border-bottom align-items-center">
+    <div class="ml-auto">
+        <input class="form-control form-control-sm" id="table-search-input" [(ngModel)]="searchText" type="text" placeholder="Search mail...">
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover no-wrap">
+        <tbody>
+            <tr class="unread">
+                <td></td>
+                <td (click)="goToDetail(mail)" class="sender">De:</td>
+                <td (click)="goToDetail(mail)" class="subject">Titulo:</td>
+                <td (click)="goToDetail(mail)" class="date">Fecha:</td>
+            </tr>
+            <ng-container *ngIf="in">
+                <tr *ngFor="let mail of service.MailsIn | slice: (page-1) * pageSize : service.MailsIn.length * pageSize: 20">
+                    <td></td>
+                    <td (click)=" goToDetail(mail) " class="sender ">{{ mail.De_deta }}</td>
+                    <td (click)="goToDetail(mail) " class="subject " [innerHTML]="mail.titulo "></td>
+                    <td (click)="goToDetail(mail) " class="date ">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="se ">
+                <tr *ngFor="let mail of service.MailsSe">
+                    <td></td>
+                    <td (click)="goToDetail(mail) " class="sender ">{{ mail.Para_deta }}</td>
+                    <td (click)="goToDetail(mail) " class="subject " [innerHTML]="mail.titulo "></td>
+                    <td (click)="goToDetail(mail) " class="date ">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
