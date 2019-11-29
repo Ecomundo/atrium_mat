@@ -1,26 +1,32 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Params } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { MailInbox, MailSent, Mail, MailService } from './mail.service';
+// import { Observable } from 'rxjs/Observable';
+// import { MailService } from './mail.service';
 import { AppState } from './app.state';
-import { promise } from 'protractor';
+// import { promise } from 'protractor';
 
 @Component({
   selector: 'app-mail',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './mail.component.html',
-  styleUrls: ['./mail.component.scss'],
-  providers: [MailService]
+  styleUrls: ['./mail.component.scss']/*,
+  providers: [MailService]*/
 })
-export class MailComponent implements OnInit{
-  public mails: Observable<Mail[]>;
+export class MailComponent {
   public id: number;
   public type: string;
+  public noRead: any;
   public markAsRead = false;
   public markAsUnRead = false;
   public deleteChecked = false;
 
-  constructor(private service: MailService, private route: ActivatedRoute, public router: Router, private state: AppState) {
+  constructor(
+    // private service: MailService,
+    private route: ActivatedRoute,
+    public router: Router,
+    private state: AppState
+    ) {
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.id = this.route.snapshot.firstChild.params['id'];
@@ -34,29 +40,12 @@ export class MailComponent implements OnInit{
 
   status = false;
 
-  ngOnInit() {
-    this.service.getAllInbox();
-
-    this.service.getAllSent();
-  }
-
   public getBack() {
     if (this.type) {
       this.router.navigate(['apps/email/mail-list/' + this.type]);
     } else {
       this.router.navigate(['apps/email/mail-list/inbox']);
     }
-  }
-
-  public trash() {
-    // jQuery('[data-toggle="tooltip"]').tooltip('hide');
-    this.service.getMail(this.id).then(mail => {
-      mail.trash = true;
-      mail.sent = false;
-      mail.draft = false;
-      mail.starred = false;
-    });
-    this.router.navigate(['apps/email/mail-list/inbox']);
   }
 
   public setAsRead() {

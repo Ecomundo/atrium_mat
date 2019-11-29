@@ -1,23 +1,91 @@
 <div class="card-body compose">
-   
+
     <form method="get" action="#">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="To">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-primary" ngbDropdownToggle>{{this.curso}}</button>
+                                    <div class="mailbox" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <div class="message-center" [perfectScrollbar]="config_mail">
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-primary" ngbDropdownToggle>{{this.desti}}</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <div class="message-center" [perfectScrollbar]="config_mail">
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Cc / Bcc">
+            <input type="text" class="form-control" placeholder="Titulo">
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Subject">
+            <textarea class="form-control" placeholder="Mensaje" rows="10"></textarea>
         </div>
-        <div class="form-group">
-            <textarea class="form-control" placeholder="Message" rows="10"></textarea>
-        </div>
+
         <div class="form-group pull-right">
-            <a [routerLink]="['../mail-list/inbox']" class="btn btn-secondary">Cancel</a>
-            <button class="btn btn-main" type="submit">Send</button>            
+            <a [routerLink]="['../mail-list/inbox']" class="btn btn-secondary">Cencelar</a>
+            <button class="btn btn-main" type="submit">Enviar</button>
         </div>
     </form>
 
- </div>
- 
+</div>

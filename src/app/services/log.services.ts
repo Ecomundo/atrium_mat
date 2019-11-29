@@ -28,11 +28,11 @@ export class LogServices implements CanActivate {
         }
     }
 
-    log() {
+    public log() {
         return (this.token != null) ? true : false;
     }
 
-    getToken() {
+    public getToken() {
         if (localStorage.getItem('token')) {
             this.token = localStorage.getItem('token');
         } else {
@@ -40,7 +40,7 @@ export class LogServices implements CanActivate {
         }
     }
 
-    signupD(user_to_login: any) {
+    public signupD(user_to_login: any) {
         const json = JSON.stringify(user_to_login);
         const params = json;
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -53,7 +53,7 @@ export class LogServices implements CanActivate {
         });
     }
 
-    signupR(user_to_login: any) {
+    public signupR(user_to_login: any) {
         const json = JSON.stringify(user_to_login);
         const params = json;
 
@@ -65,7 +65,7 @@ export class LogServices implements CanActivate {
         });
     }
 
-    saveStorageD(token: any, datos: any) {
+    public saveStorageD(token: any, datos: any) {
         localStorage.setItem('token', token);
         localStorage.setItem('cod_per', datos.cod_per);
         localStorage.setItem('let_per', datos.let_per);
@@ -80,7 +80,7 @@ export class LogServices implements CanActivate {
         this.getToken();
     }
 
-    saveStorageR(token: any, datos: any) {
+    public saveStorageR(token: any, datos: any) {
         localStorage.setItem('token', token);
         localStorage.setItem('cod_alum', datos.cod_alum);
         localStorage.setItem('cod_per', datos.cod_per);

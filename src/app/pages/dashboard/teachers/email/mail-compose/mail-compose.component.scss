@@ -1,0 +1,14 @@
+.d-inline-block,
+.dropdown-item,
+.btn-outline-primary {
+    width: 100%;
+}
+
+.btn-group input:disabled {
+    background: #ffffff;
+    border: 1px solid #ced4da;
+}
+
+.dropdown-menu.show {
+    width: 100%;
+}

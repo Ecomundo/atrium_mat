@@ -11,6 +11,17 @@ import { MailComponent } from './mail.component';
 import { MailComposeComponent } from './mail-compose/mail-compose.component';
 import { MailListComponent } from './mail-list/mail-list.component';
 import { MailDetailComponent } from './mail-detail/mail-detail.component';
+import { MailService } from './mail.service';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelSpeed: 2,
+  wheelPropagation: true
+};
 
 
 export const routes = [
@@ -26,13 +37,15 @@ export const routes = [
   }
 ];
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     PipesModule,
     NgbModule.forRoot(),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PerfectScrollbarModule
   ],
   declarations: [
     MailComponent,
@@ -40,6 +53,13 @@ export const routes = [
     MailListComponent,
     MailDetailComponent
   ],
-  providers: [AppState]
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+    MailService,
+    AppState
+  ]
 })
 export class MailModule { }

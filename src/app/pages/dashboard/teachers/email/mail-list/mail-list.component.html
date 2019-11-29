@@ -8,24 +8,24 @@
         <tbody>
             <tr class="unread">
                 <td></td>
-                <td (click)="goToDetail(mail)" class="sender">De:</td>
-                <td (click)="goToDetail(mail)" class="subject">Titulo:</td>
-                <td (click)="goToDetail(mail)" class="date">Fecha:</td>
+                <td class="sender">De:</td>
+                <td class="subject">Titulo:</td>
+                <td class="date">Fecha:</td>
             </tr>
             <ng-container *ngIf="in">
-                <tr *ngFor="let mail of service.MailsIn | slice: (page-1) * pageSize : service.MailsIn.length * pageSize: 20">
+                <tr *ngFor="let mail of mailsIn">
                     <td></td>
-                    <td (click)=" goToDetail(mail) " class="sender ">{{ mail.De_deta }}</td>
-                    <td (click)="goToDetail(mail) " class="subject " [innerHTML]="mail.titulo "></td>
-                    <td (click)="goToDetail(mail) " class="date ">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="sender">{{ mail.De_deta }}</td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="subject" [innerHTML]="mail.titulo "></td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="date">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
                 </tr>
             </ng-container>
-            <ng-container *ngIf="se ">
-                <tr *ngFor="let mail of service.MailsSe">
+            <ng-container *ngIf="se">
+                <tr *ngFor="let mail of mailsSe">
                     <td></td>
-                    <td (click)="goToDetail(mail) " class="sender ">{{ mail.Para_deta }}</td>
-                    <td (click)="goToDetail(mail) " class="subject " [innerHTML]="mail.titulo "></td>
-                    <td (click)="goToDetail(mail) " class="date ">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="sender">{{ mail.Para_deta }}</td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="subject" [innerHTML]="mail.titulo "></td>
+                    <td (click)="goToDetail(mail.cod_mens)" class="date">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
                 </tr>
             </ng-container>
         </tbody>

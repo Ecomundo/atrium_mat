@@ -2,18 +2,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogServices } from '../../services/services.index';
 
 import { ObservationsComponent } from './teachers/observations/observations.component';
-import { FullComponent } from '../layouts/full/full.component';
 import { MailComponent } from './teachers/email/mail.component';
 import { MailListComponent } from './teachers/email/mail-list/mail-list.component';
 import { MailComposeComponent } from './teachers/email/mail-compose/mail-compose.component';
 import { MailDetailComponent } from './teachers/email/mail-detail/mail-detail.component';
+import { DashboardComponent } from './dashboard.component';
 
 
 
-const Dashroutes: Routes = [
+
+export const Dashroutes: Routes = [
     {
         path: '',
-        component: FullComponent,
+        component: DashboardComponent,
         canActivate: [LogServices],
         children: [
             {
@@ -46,7 +47,8 @@ const Dashroutes: Routes = [
             {
                 path: '',
                 redirectTo: '/observaciones',
-                pathMatch: 'full' }
+                pathMatch: 'full'
+            }
         ]
     }
 ];

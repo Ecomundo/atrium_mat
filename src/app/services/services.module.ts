@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
-    LogServices/*,
+    LogServices,
+    TeacherService/*,
     LeccionarioServices,
     MateriasDocenteService,
     PlanificacionServices,
@@ -11,7 +12,8 @@ import {
 
 @NgModule({
     providers: [
-        LogServices/*,
+        LogServices,
+        TeacherService/*,
         LeccionarioServices,
         MateriasDocenteService,
         PlanificacionServices,
