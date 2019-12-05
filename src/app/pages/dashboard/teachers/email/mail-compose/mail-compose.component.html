@@ -6,69 +6,68 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        <div class="row btt-pdn">
 
-                        <div class="row">
                             <div class="col-md-6">
-
                                 <div ngbDropdown class="d-inline-block">
                                     <button class="btn btn-outline-primary" ngbDropdownToggle>{{this.curso}}</button>
                                     <div class="mailbox" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                        <div class="message-center" [perfectScrollbar]="config_mail">
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
+                                        <div *ngFor="let curso of cursos; let i = index" class="messagey-center" [perfectScrollbar]="config_mail">
+                                            <button class="dropdown-item" (click)="getPupil(i)">{{curso.Dm}} {{curso.Dca}} {{curso.Dp}}</button>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="col-md-6">
-
                                 <div ngbDropdown class="d-inline-block">
                                     <button class="btn btn-outline-primary" ngbDropdownToggle>{{this.desti}}</button>
                                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                        <div class="message-center" [perfectScrollbar]="config_mail">
-                                            <button class="dropdown-item">Action - 1</button>
-                                            <button class="dropdown-item">Another Action</button>
-                                            <button class="dropdown-item">Something else is here</button>
+                                        <div *ngFor="let desti of destis; let i = index" class="messagey-center" [perfectScrollbar]="config_mail">
+                                            <button class="dropdown-item" (click)="changeAdress(i)">{{desti.dest}}</button>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
+
+                        <div class="row" *ngIf="ocu">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Alumnos</h4>
+                                        <div class="table-responsive">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="toggle-all" class="custom-control-input" type="checkbox" [(ngModel)]="isAllSelected" (click)="toggleAll()">
+                                                <label for="toggle-all" class="custom-control-label">Check all</label>
+                                            </div>
+                                            <table class="table">
+                                                <!--<thead>
+                                                    <tr>
+                                                        <th>Task</th>
+                                                        <th>Progress</th>
+                                                        <th>Deadline</th>
+                                                        <th class="text-nowrap">Status</th>
+                                                    </tr>
+                                                </thead>-->
+                                                <tbody>
+                                                    <tr *ngFor="let students of studGroup">
+                                                        <td *ngFor="let student of students ">
+                                                            <div class="custom-control custom-checkbox mycustomcheckbox">
+                                                                <input id="checkbox{{student.cod_alum}}" class="custom-control-input" type="checkbox" name="checkbox{{student.cod_alum}}" [(ngModel)]="student.selected">
+                                                                <label attr.for="checkbox{{student.cod_alum}}" class="custom-control-label"></label>{{student.apealum}} {{student.nomalum}}
+                                                            </div>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -83,7 +82,7 @@
         </div>
 
         <div class="form-group pull-right">
-            <a [routerLink]="['../mail-list/inbox']" class="btn btn-secondary">Cencelar</a>
+            <a [routerLink]="['../mail-list/inbox']" class="btn btn-secondary">Cancelar</a>
             <button class="btn btn-main" type="submit">Enviar</button>
         </div>
     </form>

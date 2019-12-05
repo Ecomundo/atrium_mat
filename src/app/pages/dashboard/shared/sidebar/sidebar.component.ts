@@ -9,6 +9,7 @@ declare var $: any;
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+  public user: any;
   showMenu = '';
   showSubMenu = '';
   public sidebarnavItems: any[];
@@ -31,6 +32,7 @@ export class SidebarComponent implements OnInit {
   constructor(private modalService: NgbModal, private router: Router, private route: ActivatedRoute) {}
   // End open close
   ngOnInit() {
+    this.user = localStorage.getItem('nombre');
     this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
   }
 }

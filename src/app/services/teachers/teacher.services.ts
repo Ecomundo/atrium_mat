@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { Router, Params } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Global } from '../global';
 import { Observable } from 'rxjs/Observable';
 
@@ -24,7 +24,7 @@ export class TeacherService {
     };
     const params = JSON.stringify(data);
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'bearer ' + this.token});
-    this._http.post(this.url + 'Docentesmaterias', params, { headers });
+    return this._http.post(this.url + 'Docentesmaterias', params, { headers });
   }
 
 }

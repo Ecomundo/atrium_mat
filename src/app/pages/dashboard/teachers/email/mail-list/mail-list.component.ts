@@ -2,8 +2,10 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
-import { MailSent, MailInbox, MailService } from '../mail.service';
+import { MailService } from '../mail.service';
 import { AppState } from '../app.state';
+import { MailInbox, MailSent } from '../mail.model';
+
 
 @Component({
   selector: 'app-inbox-list',
@@ -19,6 +21,11 @@ export class MailListComponent implements OnInit {
   public type: string;
   public isAllSelected: boolean;
   public searchText: string;
+  public pageIn = 1;
+  public pageSe = 1;
+  public pageSize = 9;
+  public collectionSizeIn = 0;
+  public collectionSizeSe = 0;
 
   constructor(private service: MailService, private route: ActivatedRoute, public router: Router, private state: AppState) {
     /*this.router.events.subscribe(event => {
@@ -43,9 +50,11 @@ export class MailListComponent implements OnInit {
 
   ngOnInit() {
     // this.service.getInfoMen();
-    this.service.getAllInbox().map((resp) => resp as MailInbox[]).toPromise().then(x => { this.mailsIn = x; });
-    this.service.getAllSent().map((resp) => resp as MailSent[]).toPromise().then(x => { this.mailsSe = x; });
-      this.getMails();
+    this.service.getAllInbox().map((resp) => resp as MailInbox[]).toPromise()
+    .then(x => { this.mailsIn = x; this.collectionSizeIn = this.mailsIn.length; });
+    this.service.getAllSent().map((resp) => resp as MailSent[]).toPromise()
+    .then(x => { this.mailsSe = x; this.collectionSizeSe = this.mailsSe.length; });
+    this.getMails();
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

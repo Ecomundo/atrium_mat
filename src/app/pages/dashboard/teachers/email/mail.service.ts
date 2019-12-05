@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Global } from '../../../../services/global';
 import { Observable } from 'rxjs/Observable';
 import { MailInbox, MailSent } from './mail.model';
+import { Jsonp } from '@angular/http';
 
 @Injectable()
 export class MailService {
@@ -70,6 +71,18 @@ export class MailService {
     const params = JSON.stringify(data);
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'bearer ' + this.token});
     return this._http.post(this.url + 'openMensa', params, { headers });
+  }
+
+  public getStudents(cod_curso: number, des_paralelo: string) {
+    const data = {
+      cod_per: localStorage.getItem('cod_per'),
+      let_per: localStorage.getItem('let_per'),
+      cod_curso: cod_curso,
+      des_paralelo: des_paralelo
+    };
+    const params = JSON.stringify(data);
+    const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'bearer ' + this.token});
+    return this._http.post(this.url + 'getStudents', params, { headers });
   }
 
 }

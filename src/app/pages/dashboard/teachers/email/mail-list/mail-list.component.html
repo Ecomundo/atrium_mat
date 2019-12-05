@@ -13,21 +13,29 @@
                 <td class="date">Fecha:</td>
             </tr>
             <ng-container *ngIf="in">
-                <tr *ngFor="let mail of mailsIn">
+
+                <tr *ngFor="let mail of mailsIn | slice: (pageIn-1) * 10 : (pageIn-1) * pageSize + pageSize">
                     <td></td>
                     <td (click)="goToDetail(mail.cod_mens)" class="sender">{{ mail.De_deta }}</td>
                     <td (click)="goToDetail(mail.cod_mens)" class="subject" [innerHTML]="mail.titulo "></td>
                     <td (click)="goToDetail(mail.cod_mens)" class="date">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
                 </tr>
+
             </ng-container>
             <ng-container *ngIf="se">
-                <tr *ngFor="let mail of mailsSe">
+
+                <tr *ngFor="let mail of mailsSe | slice: (pageSe-1) * pageSize : (pageSe-1) * pageSize + pageSize">
                     <td></td>
                     <td (click)="goToDetail(mail.cod_mens)" class="sender">{{ mail.Para_deta }}</td>
                     <td (click)="goToDetail(mail.cod_mens)" class="subject" [innerHTML]="mail.titulo "></td>
                     <td (click)="goToDetail(mail.cod_mens)" class="date">{{mail.fec_reg | date: 'EEEE, d LLL, y'}}</td>
                 </tr>
+
             </ng-container>
         </tbody>
     </table>
+    <ngb-pagination *ngIf="in" class="d-flex justify-content-center" [(page)]="pageIn" [pageSize]="pageSize" [collectionSize]="collectionSizeIn" [maxSize]="5">
+    </ngb-pagination>
+    <ngb-pagination *ngIf="se" class="d-flex justify-content-center" [(page)]="pageSe" [pageSize]="pageSize" [collectionSize]="collectionSizeSe" [maxSize]="5">
+    </ngb-pagination>
 </div>
